@@ -43,7 +43,11 @@ std::unique_ptr<TransparentType> TransparentTypeFactory::createFromType(Type* un
                                                                         const unsigned indirections) {
   std::unique_ptr<TransparentType> type = nullptr;
   if (auto* structType = dyn_cast_or_null<StructType>(unwrappedType))
+#if LLVM_VERSION_MAJOR <= 15
+    if (structType->hasName() && structType->getStructName().startswith("union."))
+#else
     if (structType->hasName() && structType->getStructName().starts_with("union."))
+#endif
       type = std::unique_ptr<TransparentType>(new TransparentType(nullptr, true));
     else
       type = std::unique_ptr<TransparentType>(new TransparentStructType(structType));
