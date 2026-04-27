@@ -2,6 +2,7 @@
 
 #include "StructPaddingInfo.hpp"
 
+#include <llvm/ADT/DenseSet.h>
 #include <llvm/IR/DebugInfoMetadata.h>
 
 namespace tda {

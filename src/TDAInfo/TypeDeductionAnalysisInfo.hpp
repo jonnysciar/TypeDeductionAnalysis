@@ -3,6 +3,7 @@
 #include "StructPaddingInfo.hpp"
 
 #include <llvm/IR/Module.h>
+#include <optional>
 
 namespace tda {
 

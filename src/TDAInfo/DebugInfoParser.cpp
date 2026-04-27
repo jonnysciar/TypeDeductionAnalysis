@@ -1,5 +1,6 @@
 #include "DebugInfoParser.hpp"
 
+#include <llvm/ADT/DenseSet.h>
 #include <llvm/BinaryFormat/Dwarf.h>
 #include <llvm/IR/DataLayout.h>
 #include <llvm/IR/DebugInfo.h>
